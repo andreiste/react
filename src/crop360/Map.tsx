@@ -8,7 +8,7 @@ import TypeScriptWidget from "./TypeScriptWidget";
 
 import ArcGISWidget from "./ArcGISWidget";
 
-import ButtonComponent from "./ButtonComponent";
+import ButtonMUIComponent from "./ButtonMUIComponent";
 
 import { createRoot } from "react-dom/client";
 
@@ -38,22 +38,19 @@ function Map(props: MapProperties) {
                 zoom: props.zoom
             });
 
-            /*
             //Widget creat doar cu TypeScript
             const typeScriptWidget = new TypeScriptWidget("Crop360");
             view.ui.add(typeScriptWidget.container,"top-right");
-            */
 
-            /*
-            //Widget creat cu clasa din ArcGIS Maps SDK for JavaScript. Nu functioneaza, posibil din cauza compilatorului TypeScript
+            //Widget creat cu clasa din ArcGIS Maps SDK for JavaScript
             const arcgisWidget = new ArcGISWidget();
             view.ui.add(arcgisWidget,"top-right");
-            */
 
+            //Buton creat cu React si Material UI
             const node = document.createElement("div");
             view.ui.add(node,"top-right");
             const root = createRoot(node);
-            root.render(<ButtonComponent info="Crop360" />)
+            root.render(<ButtonMUIComponent info="Crop360" />)
         }
     });
 
